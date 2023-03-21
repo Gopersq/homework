@@ -1,32 +1,44 @@
 // Первая задача
 
 const func = (a) => {
-   return (b) => {
-      return (c) => {
-         return a + b + c
-      }
+   function sum(b) {
+     a += b;
+     return sum;
    }
-};
-
-console.log(func(2)(3)(5))
+    
+   sum.toString = () => {
+      console.log(a)
+     return (a);
+   };
+ 
+   return sum;
+ };
+ 
+ console.log(func(2)(3)(5))
 
 // Вторая задача
 
 const array = [5, 2, 7, 1, 3, 20];
 
-const a = array.sort((a, b) => a - b);
+const sort = (shuffleArray) => {
 
-console.log(a)
+for (let i = 0; i <= shuffleArray.length - 2; i++) {
+  let minValue = shuffleArray[i];
 
-const sortArray = (a, b) => {
-   if (a > b) {
-      return 1;
-   } else if (a < b) {
-      return -1;
-   } return 0;
+  for (let j = i + 1; j <= shuffleArray.length - 1; j++) {
+    if (shuffleArray[j] < minValue) {
+      minValue = shuffleArray[j];
+      let swap = shuffleArray[i];
+      shuffleArray[i] = minValue;
+      shuffleArray[j] = swap;
+    }
+  }
 }
 
-console.log(array.sort(sortArray))
+return shuffleArray;
+};
+
+console.log(sort(array));
 
 
 // Третья задача
